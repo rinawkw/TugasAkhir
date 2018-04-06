@@ -77,3 +77,5 @@ if isempty(t_labels)==0
     accuracy=length(find(predicted_labels==t_labels))/size(t_data,1);
     g.done = 1;
 end
+
+disp("done");

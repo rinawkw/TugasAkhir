@@ -24,4 +24,4 @@ train_label = [label_walk ; label_run];
 
 [predicted_labels,nn_index,accuracy] = KNN_(3,train,train_label,test,2)
 
-disp(predicted_labels, nn_index, accuracy);
+%disp(predicted_labels, nn_index, accuracy);

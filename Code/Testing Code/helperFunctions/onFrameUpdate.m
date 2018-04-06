@@ -42,7 +42,7 @@ g.imPrev = g.imNew;
 g.imNew= generateFrame(g.vid, t,g.kindOfMovie);
 %perform analysis and update graphics:
 [g.U, g.V, g.It] = in.userDefMethod(in,g.imNew,g.imPrev,g.U, g.V);
-updateGraphicsScript(in,myHandles,g.imNew,g.U,g.V,g.U_GT,g.V_GT,g.It);
+updateGraphicsScript(in,myHandles,g.imNew,g.U,g.V,g.It);
 [g.Fn] = matrixFn(g.matRow, g.matCol, t, g.U, g.V, g.It, g.Fn);
 %disp (t);
 

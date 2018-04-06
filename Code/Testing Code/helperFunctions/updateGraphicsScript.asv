@@ -6,9 +6,19 @@ if ~ishandle(myHandles.figH) || strcmpi(get(myHandles.figH,'BeingDeleted'),'on')
     return;
 end
 
-U = varargin{1};V = varargin{2};
-It = varargin{3};
+%while ~ishandle(myHandles.figH) || strcmpi(get(myHandles.figH,'BeingDeleted'),'on')
+ %   pause(0.01);
+%end
 
+U = varargin{1};V = varargin{2};
+It = varargin{5};
+
+%temp = g.Fn;
+%Fn = matrixFn(U,V,It,temp);
+%A = rand(3,2177280);
+%if size(Fn)==size(A)
+ % disp(Fn);
+%end
 if g.bColorFlowDisp %then do color coding of flow, full resolution
     an  = (atan2(V,U)+ pi+0.000001)/(2*pi+0.00001);
     mag = min(0.99999999,sqrt(U.^2 + V.^2)*in.sc/10);
@@ -17,7 +27,10 @@ if g.bColorFlowDisp %then do color coding of flow, full resolution
 else % if ~g.bColorFlowDisp
     set(myHandles.hImObj ,'cdata',curIm);
     set(myHandles.hQvObjPoints,'UData', in.sc*U, 'VData', in.sc*V);
-    
+    if in.bDisplayGT            
+        U_GT   = varargin{3};V_GT = varargin{4};
+        set(myHandles.hQvObjLines,'UData', in.sc*U_GT, 'VData', in.sc*V_GT);
+    end
 end
 
 if in.bRecordFlow
@@ -63,4 +76,9 @@ end
      end
 
 
+%  if g.bUpdateText
+% %     g.bUpdateText = 0;
+% g.figTopText = num2str(randi(10000));
+%      set(g.figH, 'Name',g.figTopText );
+%  end
 

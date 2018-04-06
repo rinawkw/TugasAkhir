@@ -40,6 +40,7 @@ g.imNew = g.imPrev;
 
 %get first U V
 [g.U, g.V, g.It] = g.in.userDefMethod(g.in,g.imNew,g.imPrev); %for 1st frame U V = 000~
+%checkFlowOutput(g.U, g.V);%sanity check on flow
 
 %setup graphic for the 1st time
 [g.myHandles,g.pathToSave,Fn,g.matRow,g.matCol] = setupGraphicsScript(g.in,g.imNew,g.U,g.V);        
