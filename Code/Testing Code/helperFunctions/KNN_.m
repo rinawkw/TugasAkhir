@@ -78,4 +78,4 @@ if isempty(t_labels)==0
     g.done = 1;
 end
 
-disp("done");
+disp(accuracy);

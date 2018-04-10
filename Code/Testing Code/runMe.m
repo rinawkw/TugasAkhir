@@ -11,7 +11,7 @@ while t_idx < nofFrames
     in.bRecordFlow = 0;
     in.vidRes  = [128 128];
     in.targetFramerate = 24;
-    in.movieType = 'denis_run.avi';
+    in.movieType = 'moshe_walk.avi';
    
     in.startingTime = t_idx;
     in.endingTime  = t_idx + 19;
@@ -20,8 +20,8 @@ while t_idx < nofFrames
        disp("yes")
     end
     vidProcessing(in);
-    while g.t <= in.endingTime
-         pause(0.001);
+    while g.t <= in.endingTime || g.done <=0
+         pause(0.01);
     end
     t_idx = t_idx + 20;
     nofFrames = g.nofFrames;

@@ -27,7 +27,9 @@ end
 %setting label
 g.label = in.label;
 g.startingTime = in.startingTime;
-
+g.save=0;
+g.done =0;
+g.row = in.row;
 %setting whatever
 [g.in, g.vid] = ParseAndSetupScript(in);
 
@@ -40,7 +42,7 @@ g.imPrev = generateFrame(g.vid, g.t, g.kindOfMovie);
 %bcs first tim, new = prev
 g.imNew = g.imPrev;
 
-g.U_GT =0;g.V_GT =0; %this, GT aint used
+%g.U_GT =0;g.V_GT =0; %this, GT aint used
 
 %get first U V
 [g.U, g.V, g.It] = g.in.userDefMethod(g.in,g.imNew,g.imPrev); %for 1st frame U V = 000~
@@ -55,7 +57,7 @@ myHandles = g.myHandles;
 %first time get fitur
 [g.U, g.V, g.It] = in.userDefMethod(in,g.imNew,g.imPrev,g.U, g.V);
 %first frame update graphic
-updateGraphicsScript(in,myHandles,g.imNew,g.U,g.V,g.U_GT,g.V_GT,g.It);
+updateGraphicsScript(in,myHandles,g.imNew,g.U,g.V,g.It);
 [Fn] = matrixFn(g.matRow, g.matCol, g.t, g.U, g.V, g.It, Fn);
 g.Fn = Fn;
 drawnow %expose

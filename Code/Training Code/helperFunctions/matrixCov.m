@@ -1,4 +1,5 @@
 function [Cov, LogCov] = matrixCov(Fn)
+global g;
 Cov = zeros(size(6,6));
 [m,n] = size(Fn);
 disp(n);
@@ -15,4 +16,6 @@ end
 Cov = Cov * 1/6;
 LogCov = matrixLogCov(Cov);
 %num = xlsread('training',sheet);
+
 disp('done');
+g.done = 1;

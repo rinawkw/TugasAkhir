@@ -1,42 +1,19 @@
 function updateGraphicsScript(in,myHandles,curIm,varargin)
 % Update the graphics, depending on the "method" used
 global g;
-%only update if user has NOT killed figure:
-%if ~ishandle(myHandles.figH) || strcmpi(get(myHandles.figH,'BeingDeleted'),'on')
-    %return;
-%end
-
-%while ~ishandle(myHandles.figH) || strcmpi(get(myHandles.figH,'BeingDeleted'),'on')
- %   pause(0.01);
-%end
 
 U = varargin{1};V = varargin{2};
-It = varargin{5};
+It = varargin{3};
 
-%temp = g.Fn;
-%Fn = matrixFn(U,V,It,temp);
-%A = rand(3,2177280);
-%if size(Fn)==size(A)
- % disp(Fn);
-%end
 if g.bColorFlowDisp %then do color coding of flow, full resolution
     an  = (atan2(V,U)+ pi+0.000001)/(2*pi+0.00001);
     mag = min(0.99999999,sqrt(U.^2 + V.^2)*in.sc/10);
     set(myHandles.hImObj ,'cdata', hsv2rgb(an,  mag,   max(mag,curIm/256)));
-    if in.bDisplayGT            
-        U_GT   = varargin{3};V_GT = varargin{4};
-        an_GT  = (atan2(V_GT,U_GT)+ pi+0.000001)/(2*pi+0.00001);
-        mag_GT = min(0.99999999,sqrt(U_GT.^2 + V_GT.^2)*in.sc/10);
-%                 save
-        set(myHandles.hImObjGT ,'cdata', hsv2rgb(an_GT,mag_GT,max(mag_GT,curIm/256)));
-    end
+    
 else % if ~g.bColorFlowDisp
     set(myHandles.hImObj ,'cdata',curIm);
     set(myHandles.hQvObjPoints,'UData', in.sc*U, 'VData', in.sc*V);
-    if in.bDisplayGT            
-        U_GT   = varargin{3};V_GT = varargin{4};
-        set(myHandles.hQvObjLines,'UData', in.sc*U_GT, 'VData', in.sc*V_GT);
-    end
+    
 end
 
 if in.bRecordFlow
@@ -80,11 +57,4 @@ end
              set(g.figH, 'Name',[PausString '[q,a]Lag:' num2str(g.lagTime,'%1.2f') ',  [r,f]Gamma:'  num2str(g.gamma,'%2.2f') ]);
          end
      end
-
-
-%  if g.bUpdateText
-% %     g.bUpdateText = 0;
-% g.figTopText = num2str(randi(10000));
-%      set(g.figH, 'Name',g.figTopText );
-%  end
 

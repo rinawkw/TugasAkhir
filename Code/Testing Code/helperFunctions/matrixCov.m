@@ -15,13 +15,13 @@ end
 Cov = Cov * 1/6;
 LogCov = matrixLogCov(Cov);
 test = reshape( LogCov, 1, []);
-train_walk = xlsread('training','walk');
-train_run = xlsread('training','run');
-label_walk=1*ones(size(train_walk,1),1);
-label_run=2*ones(size(train_run,1),1);
-train = [train_walk ; train_run];
-train_label = [label_walk ; label_run];
+%train_walk = xlsread('training','walk');
+%train_run = xlsread('training','run');
+%label_walk=1*ones(size(train_walk,1),1);
+%label_run=2*ones(size(train_run,1),1);
+train = xlsread('weizmann_training_mean.xlsx','MEAN');
+train_label = [1;2;3];
 
-[predicted_labels,nn_index,accuracy] = KNN_(3,train,train_label,test,2)
+[predicted_labels,nn_index,accuracy] = KNN_(1,train,train_label,test,2);
 
 %disp(predicted_labels, nn_index, accuracy);
