@@ -1,14 +1,14 @@
 global g;
 %clear in;
 %clear global g;
-[~,filename] = xlsread('filename_training.xlsx','test3');
+[~,filename] = xlsread('filename_training.xlsx','test4');
 %i=1;
 
-for i=1:3
+for i=1:1
     disp(i);
     %j=1;
     row=1;
-    for j=1:7
+    for j=1:1
         clear in;
         in.t_idx = 1;
         nofFrames = 1000;

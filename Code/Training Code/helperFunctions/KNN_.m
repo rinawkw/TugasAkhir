@@ -73,5 +73,5 @@ end
 
 %calculate the classification accuracy
 if isempty(t_labels)==0
-    accuracy=length(find(predicted_labels==t_labels))/size(t_data,1);
+    accuracy=length(find(predicted_labels==t_labels))/size(t_data,4);
 end

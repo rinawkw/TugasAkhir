@@ -17,7 +17,7 @@ if      g.bQuittingRequested || ...
     end
     if t > in.endingTime
         [g.Cov, g.LogCov] = matrixCov(g.Fn);
-        fprintf(['endingTime=' num2str(in.endingTime) ' is reached. ']);
+        %fprintf(['endingTime=' num2str(in.endingTime) ' is reached. ']);
     end
     
     %pause(0.1);

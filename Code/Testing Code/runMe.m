@@ -11,7 +11,7 @@ while t_idx < nofFrames
     in.bRecordFlow = 0;
     in.vidRes  = [128 128];
     in.targetFramerate = 24;
-    in.movieType = 'moshe_walk.avi';
+    in.movieType = 'walk_pagi_rina_1.avi';
    
     in.startingTime = t_idx;
     in.endingTime  = t_idx + 19;

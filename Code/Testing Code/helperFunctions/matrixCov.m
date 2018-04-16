@@ -1,7 +1,7 @@
 function [Cov, LogCov] = matrixCov(Fn)
 Cov = zeros(size(6,6));
 [m,n] = size(Fn);
-disp(n);
+%disp(n);
 Fnmean = mean(Fn,2);
 for i = 1:n
     temp = (Fn(:,i)-Fnmean)*(Fn(:,i)-Fnmean).';
@@ -19,9 +19,9 @@ test = reshape( LogCov, 1, []);
 %train_run = xlsread('training','run');
 %label_walk=1*ones(size(train_walk,1),1);
 %label_run=2*ones(size(train_run,1),1);
-train = xlsread('weizmann_training_mean.xlsx','MEAN');
-train_label = [1;2;3];
+train = xlsread('weizmann_training_mean.xlsx','MEAN_RINA');
+train_label = [1;2];
 
-[predicted_labels,nn_index,accuracy] = KNN_(1,train,train_label,test,2);
+[predicted_labels,nn_index,accuracy] = KNN_(1,train,train_label,test,1);
 
 %disp(predicted_labels, nn_index, accuracy);
