@@ -1,14 +1,14 @@
 global g;
 %clear in;
 %clear global g;
-[~,filename] = xlsread('filename_training.xlsx','test4');
+[~,filename] = xlsread('filename_training.xlsx','pagi');
 %i=1;
 
-for i=1:1
+for i=1:15
     disp(i);
     %j=1;
     row=1;
-    for j=1:1
+    for j=1:4
         clear in;
         in.t_idx = 1;
         nofFrames = 1000;
@@ -28,7 +28,7 @@ for i=1:1
             in.row=row;
             in.endingTime  = in.t_idx + 19;
             in.vidRes  = [128 128];
-            in.targetFramerate = 24;
+            in.targetFramerate = 25;
             vidProcessing(in);
             in.t_idx = in.t_idx + 1;
             nofFrames = g.nofFrames;

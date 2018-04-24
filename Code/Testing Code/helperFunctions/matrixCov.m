@@ -19,9 +19,9 @@ test = reshape( LogCov, 1, []);
 %train_run = xlsread('training','run');
 %label_walk=1*ones(size(train_walk,1),1);
 %label_run=2*ones(size(train_run,1),1);
-train = xlsread('weizmann_training_mean.xlsx','MEAN_RINA');
-train_label = [1;2];
+train = xlsread('weizmann_training_mean.xlsx','MEAN_CCTV');
+train_label = [1;1;1;1;1;1;2;2;2;2;2;2;3;3;3];
 
-[predicted_labels,nn_index,accuracy] = KNN_(1,train,train_label,test,1);
+[predicted_labels,nn_index,accuracy] = KNN_(1,train,train_label,test,2);
 
 %disp(predicted_labels, nn_index, accuracy);
