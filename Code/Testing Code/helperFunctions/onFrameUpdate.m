@@ -4,7 +4,7 @@ in = g.in;
 myHandles = g.myHandles;
 g.t=g.t+1;
 t = g.t;
-
+disp("frame update");
 %strcmpi(get(myHandles.figH,'BeingDeleted'),'on')
 
 %first check if we should quit or pause:

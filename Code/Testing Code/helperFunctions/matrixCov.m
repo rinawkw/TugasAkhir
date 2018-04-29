@@ -1,4 +1,5 @@
 function [Cov, LogCov] = matrixCov(Fn)
+disp("matrix cov");
 Cov = zeros(size(6,6));
 [m,n] = size(Fn);
 %disp(n);

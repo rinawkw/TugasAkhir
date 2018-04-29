@@ -1,5 +1,6 @@
 function [predicted_labels,nn_index,accuracy] = KNN_(k,data,labels,t_data,t_labels)
 global g;
+disp("knn");
 %KNN_: classifying using k-nearest neighbors algorithm. The nearest neighbors
 %search method is euclidean distance
 %Usage:

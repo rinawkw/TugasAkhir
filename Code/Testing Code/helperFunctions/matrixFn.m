@@ -5,6 +5,7 @@ function [Fn] = matrixFn(x,y,t,u,v,It,Ftemp)
 % row 4= u
 % row 5 = v
 % row 6 = It
+disp("matrix fn");
     x_ = reshape( x, 1, []);
     y_ = reshape( y, 1, []);
     t_ = reshape(ones(360,636)*t,1,[]);

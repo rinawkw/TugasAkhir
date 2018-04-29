@@ -1,5 +1,6 @@
 function updateGraphicsScript(in,myHandles,curIm,varargin)
 % Update the graphics, depending on the "method" used
+disp("update image");
 global g;
 %only update if user has NOT killed figure:
 if ~ishandle(myHandles.figH) || strcmpi(get(myHandles.figH,'BeingDeleted'),'on')

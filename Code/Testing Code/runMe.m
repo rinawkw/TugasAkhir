@@ -1,3 +1,4 @@
+tic;
 clear in;
 clear global g;
 global g;
@@ -10,19 +11,21 @@ while t_idx < nofFrames
     in.method =  @FlowHS;
     in.bRecordFlow = 0;
     in.vidRes  = [128 128];
-    in.targetFramerate = 24;
-    in.movieType = 'walk_pagi_rina_1.avi';
+    in.targetFramerate = 60;
+    in.movieType = 'walk_pagi_bayu_1.avi';
    
     in.startingTime = t_idx;
     in.endingTime  = t_idx + 19;
     if in.endingTime >= nofFrames
-       in.endingTime = nofFrames;
-       disp("yes")
+       %in.endingTime = nofFrames;
+       %disp("yes")
+       break
     end
     vidProcessing(in);
     while g.t <= in.endingTime || g.done <=0
          pause(0.01);
     end
     t_idx = t_idx + 20;
-    nofFrames = g.nofFrames;
+    nofFrames = 41;
 end
+toc;

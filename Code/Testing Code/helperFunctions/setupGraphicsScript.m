@@ -1,5 +1,6 @@
 function [myHandles, pathToSave, Fn, matRow, matCol] = setupGraphicsScript(in,imNew, varargin)
 global g;
+disp("setupgraphic");
 pathToSave = in.pathToSave;
 myHandles.figH = figure('NumberTitle','off');
 g.bColorFlowDisp =1;
@@ -30,7 +31,7 @@ if all(size(imNew) == size(U)) %then display as color coding
       axis off;axis image; title(gca, 'Ground Truth Flow');
     end
 else %if flow field not the size of image, display as vectors
-    g.bColorFlowDisp = 0;
+    g.bColorFlowDisp = 1;
     myHandles.hImObj= imagesc( imNew,[0,250]);
     colormap gray;axis off;axis manual;axis image;
     hold on;

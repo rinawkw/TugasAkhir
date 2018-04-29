@@ -1,7 +1,7 @@
 function vidProcessing(in)
 
 addpath('helperFunctions');
-
+disp("vidproc");
 global g; 
 persistent bKillGlob
 
