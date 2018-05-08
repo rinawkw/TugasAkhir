@@ -1,21 +1,17 @@
 function [Cov, LogCov] = matrixCov(Fn)
 global g;
-Cov = zeros(size(6,6));
-[m,n] = size(Fn);
-disp(n);
+%disp(n);
+[a,b] = size(Fn);
 Fnmean = mean(Fn,2);
-for i = 1:n
-    temp = (Fn(:,i)-Fnmean)*(Fn(:,i)-Fnmean).';
-    Cov = Cov + temp;
-    %disp(i);
-    %disp(temp);
-end
+Fnmin = Fn - Fnmean;
+Cov = Fnmin * Fnmin.';
 
 %disp(size(temp));
-
-Cov = Cov * 1/6;
+m = 1/b;
+Cov = Cov * m;
 LogCov = matrixLogCov(Cov);
 %num = xlsread('training',sheet);
-
-disp('done');
+%disp(m);
+%disp(n);
+%disp('done');
 g.done = 1;

@@ -5,7 +5,7 @@ global g;
 %i=1;
 
 for i=1:15
-    disp(i);
+    %disp(i);
     %j=1;
     row=1;
     for j=1:4
@@ -13,7 +13,7 @@ for i=1:15
         in.t_idx = 1;
         nofFrames = 1000;
         in.file = char(filename(j+1,i));
-        disp(in.file);                                                                                                                                                                                                                                                                                                                                                                                                                                 
+        fprintf(['filename: ' in.file]);                                                                                                                                                                                                                                                                                                                                                                                                                                 
         if strcmp(in.file,'none')
            disp("continue");
            continue

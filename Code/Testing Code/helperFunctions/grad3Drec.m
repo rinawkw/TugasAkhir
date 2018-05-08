@@ -9,3 +9,4 @@ f = imNew + imPrev;
 dx = tInt*dx + (1-tInt)*conv2(f(:,[2:end end ]) - f(:,[1 1:(end-1)]),gg','same');
 dy = tInt*dy + (1-tInt)*conv2(f([2:end end],: ) - f([1 1:(end-1)],:),gg ,'same');
 dt = tInt*dt + (1-tInt)*2*conv2(gg,gg,imNew - imPrev,'same'); 
+

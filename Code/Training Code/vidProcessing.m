@@ -45,7 +45,7 @@ g.imNew = g.imPrev;
 %g.U_GT =0;g.V_GT =0; %this, GT aint used
 
 %get first U V
-[g.U, g.V, g.It] = g.in.userDefMethod(g.in,g.imNew,g.imPrev); %for 1st frame U V = 000~
+[g.U, g.V, g.It, g.Ut, g.Vt, g.Div, g.Vor, g.Gten, g.Sten] = g.in.userDefMethod(g.in,g.imNew,g.imPrev); %for 1st frame U V = 000~
 %checkFlowOutput(g.U, g.V);%sanity check on flow
 
 %setup graphic for the 1st time
@@ -55,10 +55,10 @@ in = g.in;
 myHandles = g.myHandles;
 
 %first time get fitur
-[g.U, g.V, g.It] = in.userDefMethod(in,g.imNew,g.imPrev,g.U, g.V);
+[g.U, g.V, g.It, g.Ut, g.Vt, g.Div, g.Vor, g.Gten, g.Sten] = in.userDefMethod(in,g.imNew,g.imPrev,g.U, g.V);
 %first frame update graphic
 updateGraphicsScript(in,myHandles,g.imNew,g.U,g.V,g.It);
-[Fn] = matrixFn(g.matRow, g.matCol, g.t, g.U, g.V, g.It, Fn);
+[Fn] = matrixFn(g.matRow, g.matCol, g.t, g.U, g.V, g.It, g.Ut, g.Vt, g.Div, g.Vor, g.Gten, g.Sten, Fn);
 g.Fn = Fn;
 drawnow %expose
 start(g.timer1); % this issss theee loooppp 

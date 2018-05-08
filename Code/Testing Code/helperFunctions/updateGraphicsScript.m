@@ -1,6 +1,6 @@
 function updateGraphicsScript(in,myHandles,curIm,varargin)
 % Update the graphics, depending on the "method" used
-disp("update image");
+%disp("update image");
 global g;
 %only update if user has NOT killed figure:
 if ~ishandle(myHandles.figH) || strcmpi(get(myHandles.figH,'BeingDeleted'),'on')
@@ -26,7 +26,6 @@ if in.bRecordFlow
         if strcmpi(in.method,'user') || strcmpi(in.method,'synthetic')
             U = (U+in.rm)*(127/in.rm);
             V = (V+in.rm)*(127/in.rm);
-            It = (It+in.rm)*(127/in.rm);
             writeVideo(g.writeVidFlow,...
                reshape(uint8([U, V, curIm]),...
                [size(an,1) size(an,2) 3]));

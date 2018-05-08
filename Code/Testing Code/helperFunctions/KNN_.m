@@ -54,7 +54,7 @@ for test_point=1:size(t_data,1)
     end
     [ed(test_point,:),ind(test_point,:)]=sort(ed(test_point,:));
 end
-disp(ed);
+%disp(ed);
 %find the nearest k for each data point of the testing data
 k_nn=ind(:,1:k);
 nn_index=k_nn(:,1);

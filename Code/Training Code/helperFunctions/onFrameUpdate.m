@@ -18,7 +18,7 @@ if      g.bQuittingRequested || ...
     if t > in.endingTime
         [g.Cov, g.LogCov] = matrixCov(g.Fn);
         saveToExcel(g.LogCov,g.row,g.label);
-        fprintf(['endingTime=' num2str(in.endingTime) ' is reached. ']);
+        fprintf(['endingTime=' num2str(in.endingTime)]);
     end
     
     %pause(0.1);
@@ -42,9 +42,9 @@ g.imPrev = g.imNew;
 %get new image:
 g.imNew= generateFrame(g.vid, t,g.kindOfMovie);
 %perform analysis and update graphics:
-[g.U, g.V, g.It] = in.userDefMethod(in,g.imNew,g.imPrev,g.U, g.V);
+[g.U, g.V, g.It, g.Ut, g.Vt, g.Div, g.Vor, g.Gten, g.Sten] = in.userDefMethod(in,g.imNew,g.imPrev,g.U, g.V);
 updateGraphicsScript(in,myHandles,g.imNew,g.U,g.V,g.It);
-[g.Fn] = matrixFn(g.matRow, g.matCol, t, g.U, g.V, g.It, g.Fn);
+[g.Fn] = matrixFn(g.matRow, g.matCol, t, g.U, g.V, g.It, g.Ut, g.Vt, g.Div, g.Vor, g.Gten, g.Sten, g.Fn);
 %disp (t);
 
 drawnow %expose
