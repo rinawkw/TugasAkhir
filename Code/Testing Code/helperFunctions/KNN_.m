@@ -50,7 +50,7 @@ for test_point=1:size(t_data,1)
     for train_point=1:size(data,1)
         %calc and store sorted euclidean distances with corresponding indices
         ed(test_point,train_point)=sqrt(...
-            sum((t_data(test_point,:)-data(train_point,:)).^2));
+            sum((t_data(test_point,:)-data(train_point,:)).^2,2));
     end
     [ed(test_point,:),ind(test_point,:)]=sort(ed(test_point,:));
 end

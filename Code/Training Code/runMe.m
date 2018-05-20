@@ -1,19 +1,19 @@
 global g;
 %clear in;
 %clear global g;
-[~,filename] = xlsread('filename_training.xlsx','pagi');
+[~,filename] = xlsread('filename_training.xlsx','weizmann_testing');
 %i=1;
 
-for i=1:15
+for i=1:9
     %disp(i);
     %j=1;
     row=1;
-    for j=1:4
+    for j=1:2
         clear in;
         in.t_idx = 1;
         nofFrames = 1000;
         in.file = char(filename(j+1,i));
-        fprintf(['filename: ' in.file]);                                                                                                                                                                                                                                                                                                                                                                                                                                 
+        fprintf(['filename: ' in.file newline]);                                                                                                                                                                                                                                                                                                                                                                                                                                 
         if strcmp(in.file,'none')
            disp("continue");
            continue

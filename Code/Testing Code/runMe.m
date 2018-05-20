@@ -14,7 +14,7 @@ clear in;
     in.bRecordFlow = 0;
     in.vidRes  = [128 128];
     in.targetFramerate = 25;
-    in.movieType = 'wave_pagi_rina_4.avi';
+    in.movieType = 'lyova_walk.avi';
    
     in.startingTime = 1;
     %in.endingFrame  = t_idx + 19;

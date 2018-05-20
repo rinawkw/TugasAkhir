@@ -1,4 +1,5 @@
 function [Cov, LogCov] = matrixCov(Fn)
+global g;
 disp("matrix cov");
 [a,b] = size(Fn);
 %disp(n);
@@ -15,9 +16,13 @@ test = reshape( LogCov, 1, []);
 %train_run = xlsread('training','run');
 %label_walk=1*ones(size(train_walk,1),1);
 %label_run=2*ones(size(train_run,1),1);
-train = xlsread('training_mean.xlsx','MEAN_CCTV_3');
-train_label = [1;1;1;1;1;1;2;2;2;2;2;2;3;3;3];
+train = xlsread('weizmann_training_all.xlsx','ALL','A1:EN3876');
+train_label = xlsread('weizmann_training_all.xlsx','ALL','EO1:EO3876');
 %train_label = [1;2;3];
-[predicted_labels,nn_index,accuracy] = KNN_(1,train,train_label,test,3);
+[ed,idx] = pdist2(train,test,'euclidean','Smallest',1);
+disp(train_label(idx));
+disp(ed);
+g.done = 1;
+%[predicted_labels,idx,accuracy] = KNN2(1,train,train_label,test,6);
 
 %disp(predicted_labels, nn_index, accuracy);

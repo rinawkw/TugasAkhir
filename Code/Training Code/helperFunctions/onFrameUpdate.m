@@ -18,7 +18,7 @@ if      g.bQuittingRequested || ...
     if t > in.endingTime
         [g.Cov, g.LogCov] = matrixCov(g.Fn);
         saveToExcel(g.LogCov,g.row,g.label);
-        fprintf(['endingTime=' num2str(in.endingTime)]);
+        fprintf(['endingTime: ' num2str(in.endingTime) newline]);
     end
     
     %pause(0.1);
