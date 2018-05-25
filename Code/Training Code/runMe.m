@@ -4,7 +4,7 @@ global g;
 [~,filename] = xlsread('filename_training.xlsx','weizmann_testing');
 %i=1;
 
-for i=1:9
+for i=1:10
     %disp(i);
     %j=1;
     row=1;
@@ -27,6 +27,9 @@ for i=1:9
             in.startingTime = in.t_idx;
             in.row=row;
             in.endingTime  = in.t_idx + 19;
+            if(in.endingTime > nofFrames)
+                break
+            end
             in.vidRes  = [128 128];
             in.targetFramerate = 25;
             vidProcessing(in);

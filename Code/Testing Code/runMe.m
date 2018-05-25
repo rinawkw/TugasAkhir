@@ -14,9 +14,9 @@ clear in;
     in.bRecordFlow = 0;
     in.vidRes  = [128 128];
     in.targetFramerate = 25;
-    in.movieType = 'lyova_walk.avi';
+    in.movieType = 'daria_run.avi';
    
-    in.startingTime = 1;
+    in.startingTime = 21;
     %in.endingFrame  = t_idx + 19;
     in.endingTime = 'eof';
    % if in.endingFrame >= nofFrames
