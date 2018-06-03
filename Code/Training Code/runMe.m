@@ -1,22 +1,22 @@
 global g;
 %clear in;
 %clear global g;
-[~,filename] = xlsread('filename_training.xlsx','weizmann_testing');
+[~,filename] = xlsread('filename_training.xlsx','cctv_malam');
 %i=1;
-
-for i=1:10
+addpath('Malam');
+for i=1:1
     %disp(i);
     %j=1;
     row=1;
-    for j=1:2
+    for j=1:36
         clear in;
         in.t_idx = 1;
         nofFrames = 1000;
         in.file = char(filename(j+1,i));
         fprintf(['filename: ' in.file newline]);                                                                                                                                                                                                                                                                                                                                                                                                                                 
         if strcmp(in.file,'none')
-           disp("continue");
-           continue
+           disp("next");
+           break
         end
         in.endingTime=20;
         while in.t_idx < nofFrames

@@ -6,10 +6,10 @@ g.bColorFlowDisp =1;
 %A = rand(3,1);
 %g.Fn = zeros(size(A));
 %% Setup row & col matrix
-row = reshape( 1:144, 144, []);
-matRow = row*ones(1,180);
-col = reshape(1:180,[],180);
-matCol = ones(144,1)*col;
+row = reshape( 1:360, 360, []);
+matRow = row*ones(1,636);
+col = reshape(1:636,[],636);
+matCol = ones(360,1)*col;
 %matFrame = ones(144,180);
 Fn = [];
 g.matFn = [];

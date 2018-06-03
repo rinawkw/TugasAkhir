@@ -1,5 +1,5 @@
-X = xlsread('weizmann_all.xlsx','ALL3','A1:EN3822');
-Y = xlsread('weizmann_all.xlsx','ALL3','EO1:EO3822');
+X = xlsread('weizmann_all.xlsx','ALL_20','A1:EN3920');
+Y = xlsread('weizmann_all.xlsx','ALL_20','EO1:EO3920');
 mdl = fitcknn(X,Y,'Distance','euclidean');
 cvmdl = crossval(mdl);
 cvmdl_predict = kfoldPredict(cvmdl);

@@ -6,5 +6,5 @@ global g;
 row = num2str(row);
 colrow = strcat('A',row);
 logCov = reshape( logCov, 1, []);
-xlswrite('weizmann_testing_3.xlsx',logCov,label,colrow);
+xlswrite('cctv_malam_20_training.xlsx',logCov,label,colrow);
 g.save = 1;
