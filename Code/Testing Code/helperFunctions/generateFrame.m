@@ -1,5 +1,5 @@
 % Copyright: Stefan  M. Karlsson, Josef Bigun 2014
-function [imNew, bEof] = generateFrame(vid, t,kindOfMovie)
+function [imNew, bEof] = generateFrame(vid, t, kindOfMovie)
 %persistent iix iiy k prevT rotAn P0 inertia synt rotAnprev PtXprev PtYprev flowRes edgeTilt macroDat;
 %global g;
 

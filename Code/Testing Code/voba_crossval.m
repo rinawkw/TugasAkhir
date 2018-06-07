@@ -1,9 +1,10 @@
-X = xlsread('weizmann_all.xlsx','ALL_20','A1:EN3920');
-Y = xlsread('weizmann_all.xlsx','ALL_20','EO1:EO3920');
+X = xlsread('weizmann_all.xlsx','ALL_8','A1:EN5036');
+Y = xlsread('weizmann_all.xlsx','ALL_8','EO1:EO5036');
 mdl = fitcknn(X,Y,'Distance','euclidean');
 cvmdl = crossval(mdl);
 cvmdl_predict = kfoldPredict(cvmdl);
 cvmdl_conf = confusionmat(cvmdl.Y,cvmdl_predict);
+xlswrite('cm.xlsx',cvmdl_conf);
 disp(cvmdl_conf);
 cvmdlloss = kfoldLoss(cvmdl);
 validationAccuracy = 1 - kfoldLoss(cvmdl, 'LossFun', 'ClassifError');

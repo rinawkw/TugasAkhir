@@ -1,10 +1,10 @@
 global g;
 %clear in;
 %clear global g;
-[~,filename] = xlsread('filename_training.xlsx','cctv_malam');
+[~,filename] = xlsread('filename_training.xlsx','cctv_siang');
 %i=1;
-addpath('Malam');
-for i=1:1
+addpath('Siang');
+for i=1:3
     %disp(i);
     %j=1;
     row=1;
@@ -18,7 +18,7 @@ for i=1:1
            disp("next");
            break
         end
-        in.endingTime=20;
+        in.endingTime=10;
         while in.t_idx < nofFrames
             in.label = char(filename(1,i));
             in.method =  @FlowHS;
@@ -26,7 +26,7 @@ for i=1:1
             in.movieType = in.file;
             in.startingTime = in.t_idx;
             in.row=row;
-            in.endingTime  = in.t_idx + 19;
+            in.endingTime  = in.t_idx + 9;
             if(in.endingTime > nofFrames)
                 break
             end
